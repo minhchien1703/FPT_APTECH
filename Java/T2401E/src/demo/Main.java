@@ -1,5 +1,4 @@
-import demo.Student;
-import demo.car;
+package demo;
 
 import java.util.Scanner;
 

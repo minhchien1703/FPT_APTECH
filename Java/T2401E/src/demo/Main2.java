@@ -1,4 +1,4 @@
-import demo.Person;
+package demo;
 
 import java.util.Scanner;
 
