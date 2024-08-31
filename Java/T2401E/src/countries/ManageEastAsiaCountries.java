@@ -12,6 +12,29 @@ public class ManageEastAsiaCountries {
             AREA_LESS_THAN_ZERO = "Area is less than zero!",
             NAME_NULL_EMPTY = "Name can't null or empty!";
 
+    public EastAsiaCountries[] sortInformationbyAscendingOrder() throws Exception {
+        if (nextCountry > 0) {
+            EastAsiaCountries temp = null;
+            int length = nextCountry;
+            for (int i = 0; i < length; i++) {
+                for (int j = 1; j < (length - i); j++) {
+                    if (data[j].getCountryName().compareTo(data[j - 1].getCountryName()) > 0) {
+                        temp = data[j - 1];
+                        data[j - 1] = data[j];
+                        data[j] = temp;
+                    }
+                }
+            }
+            EastAsiaCountries[] data = new EastAsiaCountries[length];
+            for (int i = 0; i < length; i++) {
+                data[i] = this.data[i];
+            }
+            return data;
+        } else {
+            throw new Exception(NO_COUNTRY);
+        }
+    }
+
     public EastAsiaCountries[] searchInformationByName(String name) throws Exception {
         if (nextCountry > 0) {
             int length = 0;
@@ -57,8 +80,9 @@ public class ManageEastAsiaCountries {
     }
 
     public String checkCountryName (String countryName) throws Exception {
-        if (countryName == null || "".endsWith(countryName))
+        if (countryName == null || "".endsWith(countryName)) {
             throw new Exception(NAME_NULL_EMPTY);
+        }
         return countryName;
     }
 
@@ -75,6 +99,7 @@ public class ManageEastAsiaCountries {
         }
         return totalArea;
     }
+
 
 
 }

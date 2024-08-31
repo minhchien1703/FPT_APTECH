@@ -1,5 +1,9 @@
 package managerPersonProgram;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.Comparator;
+
 /**
  * @author Student Name
  * @version 1.0
@@ -31,18 +35,16 @@ public class ManagementPerson {
             if (sSalary != null && !sSalary.isEmpty()) {
                 dSalary = Double.parseDouble(sSalary);
                 if (dSalary > 0) {
-                    new Person(name, address, dSalary);
+                    return new Person(name, address, dSalary);
                 } else {
-                    System.out.println(SALARY_NOT_THAN_ZERO);
+                    throw new Exception(SALARY_NOT_THAN_ZERO);
                 }
             } else {
-                System.out.println(INPUT_SALARY);
+                throw new Exception(INPUT_SALARY);
             }
         } catch (Exception e) {
-            System.out.println(INPUT_DIGIDT);
+            throw new Exception(INPUT_DIGIDT);
         }
-
-        return null;
     }
 
     /**
@@ -54,7 +56,7 @@ public class ManagementPerson {
     public void displayPersonInfo(Person person) {
         System.out.println("Name: " + person.getName());
         System.out.println("Address: " + person.getAddress());
-        System.out.println("Salary: " + person.getSalary());
+        System.out.println("Salary: " + person.getSalary() + "\n");
     }
 
     /**
@@ -67,7 +69,16 @@ public class ManagementPerson {
      * @throws Exception "Can't Sort Person" 
      */
     public Person[] sortBySalary(Person[] persons) throws Exception {
-        // Student write code here
-        return null;
+        if (persons == null || persons.length == 0) {
+            throw new Exception("Can't sort, the person array is empty or null.");
+        }
+//      collections.sort(persons);
+        Arrays.sort(persons, new Comparator<Person>() {
+            @Override
+            public int compare(Person o1, Person o2) {
+                return Double.compare(o1.getSalary(), o2.getSalary());
+            }
+        });
+        return persons;
     }
 }

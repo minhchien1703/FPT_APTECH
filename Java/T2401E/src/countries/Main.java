@@ -38,12 +38,13 @@ public class Main {
             Scanner scanner = new Scanner(System.in);
             System.out.println("Enter choose 1 to 5:");
             choose = scanner.nextInt();
+            scanner.nextLine();
             switch (choose) {
                 case INPUT_COUNTRY:
                     String countryCode, countryName, countryTerrain;
                     float totalArea = 0;
                     System.out.println("Enter code of country:");
-                    countryCode = scanner.next();
+                    countryCode = scanner.nextLine();
                     while(true) {
                         System.out.println("Enter country name:");
                         try {
@@ -96,7 +97,28 @@ public class Main {
                             } catch (Exception e) {
                                 System.out.println(e.getMessage());
                             }
+                            break;
 
+                case DISPLAY_SORT:
+                    try {
+                        EastAsiaCountries[] list = manager.sortInformationbyAscendingOrder();
+                        System.out.format("%1$-15s %2$-15s %3$-15s %4$-15s \n",
+                                "ID", "Name", "Total Area", "Terrain");
+                        for (EastAsiaCountries countrie : list) {
+                            System.out.println(countrie.display());
+                        }
+
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                    break;
+
+                case EXIT:
+                    System.exit(0);
+
+                default:
+                    System.out.println("Invalid Choose!");
+                    break;
 
             }
         }
