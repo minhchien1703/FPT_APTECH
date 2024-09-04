@@ -12,7 +12,7 @@ public class PLayerManagement {
         list = new ArrayList<>();
         FootballPlayer player1 = new FootballPlayer("Cristiano Ronaldo", 7, "Center Forward", 185, 80, 39);
         FootballPlayer player2 = new FootballPlayer("Lionel Messi", 10, "midfielder", 169, 78, 38);
-        FootballPlayer player3 = new FootballPlayer("Bruno Fernandes", 10, "midfielder", 170, 77, 34);
+        FootballPlayer player3 = new FootballPlayer("Bruno Fernandes", 8, "midfielder", 170, 77, 34);
         FootballPlayer player4 = new FootballPlayer("David Beckham", 9, "midfielder", 183, 80, 45);
         FootballPlayer player5 = new FootballPlayer("Andres Iniesta", 6, "midfielder", 173, 80, 48);
         list.add(player1);
