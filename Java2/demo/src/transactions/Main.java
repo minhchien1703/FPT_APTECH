@@ -33,7 +33,6 @@ public class Main {
             = conn.prepareStatement("UPDATE employees SET income = income - ? WHERE emp_id = ?"  );
             pstmtSubtractMoney.setInt(1, 1000000);
             pstmtSubtractMoney.setInt(2, 1);
-
             PreparedStatement pstmtSumMoney
             = conn.prepareStatement("UPDATE employees SET income = income + ? WHERE emp_id = ?" );
             pstmtSumMoney.setInt(1, 100000);
