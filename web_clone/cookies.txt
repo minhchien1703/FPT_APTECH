@@ -1,0 +1,6 @@
+# HTTrack Website Copier Cookie File
+# This file format is compatible with Netscape cookies
+i.transtechvietnam.com	TRUE	/	FALSE	1999999999	PHPSESSID	dpdkdck34gp2dsr9jq888c0epb
+i.transtechvietnam.com	TRUE	/	FALSE	1999999999	SameSite	Lax
+i.transtechvietnam.com	TRUE	/	FALSE	1999999999	s_statistics_8	0
+
